@@ -12,6 +12,7 @@ import CategoryInput from "../inputs/category-input"
 import { categories } from "../navbar/categories"
 import Input from "../inputs/input"
 import Heading from "../heading"
+import CountrySelect from "../inputs/country-select"
 
 enum STEPS {
   CATEGORY = 0,
@@ -52,10 +53,13 @@ const RentModal = () => {
 
   const location = watch("location")
   const category = watch("category")
-  const guestCount = watch("guestCount")
-  const roomCount = watch("roomCount")
-  const bathroomCount = watch("bathroomCount")
-  const imageSrc = watch("imageSrc")
+  const Map = useMemo(
+    () =>
+      dynamic(() => import("../map"), {
+        ssr: false,
+      }),
+    [location]
+  )
 
   const setCustomValue = (id: string, value: any) => {
     setValue(id, value, {
@@ -119,6 +123,7 @@ const RentModal = () => {
         title="Qual das seguintes opções descreve melhor seu espaço?"
         subtitle="Selecione a opção"
       />
+
       <div
         className="
           grid 
@@ -150,6 +155,11 @@ const RentModal = () => {
           title="Onde está localizado o seu lugar?"
           subtitle="Ajude os hóspedes a encontrar você!"
         />
+        <CountrySelect
+          value={location}
+          onChange={(value) => setCustomValue("location", value)}
+        />
+        <Map center={location?.latlng} />
       </div>
     )
   }
