@@ -14,6 +14,7 @@ import Input from "../inputs/input"
 import Heading from "../heading"
 import CountrySelect from "../inputs/country-select"
 import Counter from "../inputs/counter"
+import ImageUpload from "../inputs/image-upload"
 
 enum STEPS {
   CATEGORY = 0,
@@ -100,7 +101,7 @@ const RentModal = () => {
         rentModal.onClose()
       })
       .catch(() => {
-        toast.error("Something went wrong.")
+        toast.error("Tente novamente.")
       })
       .finally(() => {
         setIsLoading(false)
@@ -180,8 +181,8 @@ const RentModal = () => {
         <Counter
           onChange={(value) => setCustomValue("guestCount", value)}
           value={guestCount}
-          title="Convidados"
-          subtitle="Quantos convidados você permite?"
+          title="Hóspedes"
+          subtitle="Quantos hóspedes você permite?"
         />
         <hr />
         <Counter
@@ -207,6 +208,10 @@ const RentModal = () => {
         <Heading
           title="Adicione uma foto do seu lugar"
           subtitle="Mostre aos convidados como é o seu lugar!"
+        />
+        <ImageUpload
+          onChange={(value) => setCustomValue("imageSrc", value)}
+          value={imageSrc}
         />
       </div>
     )
