@@ -50,7 +50,7 @@ const Input: React.FC<InputProps> = ({
           pt-6 
           font-light 
           bg-white 
-          border-2
+          border-[0.5px]
           rounded-md
           outline-none
           transition

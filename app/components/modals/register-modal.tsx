@@ -58,7 +58,7 @@ const RegisterModal = () => {
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading title="Welcome to Airbnb" subtitle="Create an account!" />
+      <Heading title="Bem-vindo ao Airbnb" subtitle="Crie a sua conta aqui!" />
       <Input
         id="email"
         label="Email"
@@ -69,7 +69,7 @@ const RegisterModal = () => {
       />
       <Input
         id="name"
-        label="Name"
+        label="Nome"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -77,7 +77,7 @@ const RegisterModal = () => {
       />
       <Input
         id="password"
-        label="Password"
+        label="Senha"
         type="password"
         disabled={isLoading}
         register={register}
@@ -89,16 +89,20 @@ const RegisterModal = () => {
 
   const footerContent = (
     <div className="flex flex-col gap-4 mt-3">
-      <hr />
+      <div className="flex items-center">
+        <div className="flex-1 h-0.5 bg-gray-200"></div>
+        <span className="mx-4 font-bold text-gray-400">ou</span>
+        <div className="flex-1 h-0.5 bg-gray-200"></div>
+      </div>
       <Button
         outline
-        label="Continue with Google"
+        label="Continuar com Google"
         icon={FcGoogle}
         onClick={() => signIn("google")}
       />
       <Button
         outline
-        label="Continue with Github"
+        label="Continuar com Github"
         icon={AiFillGithub}
         onClick={() => signIn("github")}
       />
@@ -111,7 +115,7 @@ const RegisterModal = () => {
         "
       >
         <p>
-          Already have an account?
+          Você já possui uma conta?
           <span
             onClick={onToggle}
             className="
@@ -121,7 +125,7 @@ const RegisterModal = () => {
             "
           >
             {" "}
-            Log in
+            Faça o login
           </span>
         </p>
       </div>
@@ -132,8 +136,8 @@ const RegisterModal = () => {
     <Modal
       disabled={isLoading}
       isOpen={registerModal.isOpen}
-      title="Register"
-      actionLabel="Continue"
+      title="Cadastrar-se"
+      actionLabel="Continuar"
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       body={bodyContent}

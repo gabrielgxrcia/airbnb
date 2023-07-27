@@ -33,11 +33,11 @@ const Button: React.FC<ButtonProps> = ({
         w-full
         ${outline ? "bg-white" : "bg-rose-500"}
         ${outline ? "border-black" : "border-rose-500"}
-        ${outline ? "text-black" : "text-white"}
+        ${outline ? "text-zinc-600" : "text-white"}
         ${small ? "text-sm" : "text-md"}
         ${small ? "py-1" : "py-3"}
-        ${small ? "font-light" : "font-semibold"}
-        ${small ? "border-[1px]" : "border-2"}
+        ${small ? "font-light" : "font-light"}
+        ${small ? "border-[1]" : "border-[0.5px]"}
       `}
     >
       {Icon && (

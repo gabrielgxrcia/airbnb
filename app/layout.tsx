@@ -1,9 +1,8 @@
 import "./globals.css"
 import type { Metadata } from "next"
-import { Nunito } from "next/font/google"
+import { DM_Sans } from "next/font/google"
 import Navbar from "./components/navbar/navbar"
 import ClientOnly from "./components/clientonly"
-import Modal from "./components/modals/modal"
 import RegisterModal from "./components/modals/register-modal"
 import ToasterProvider from "./providers/toaster-provider"
 
@@ -12,8 +11,9 @@ export const metadata: Metadata = {
   description: "Airbnb clone",
 }
 
-const font = Nunito({
+const font = DM_Sans({
   subsets: ["latin"],
+  weight: "400",
 })
 
 export default function RootLayout({
