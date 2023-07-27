@@ -13,6 +13,7 @@ import { categories } from "../navbar/categories"
 import Input from "../inputs/input"
 import Heading from "../heading"
 import CountrySelect from "../inputs/country-select"
+import Counter from "../inputs/counter"
 
 enum STEPS {
   CATEGORY = 0,
@@ -53,6 +54,11 @@ const RentModal = () => {
 
   const location = watch("location")
   const category = watch("category")
+  const guestCount = watch("guestCount")
+  const roomCount = watch("roomCount")
+  const bathroomCount = watch("bathroomCount")
+  const imageSrc = watch("imageSrc")
+
   const Map = useMemo(
     () =>
       dynamic(() => import("../map"), {
@@ -171,10 +177,26 @@ const RentModal = () => {
           title="Compartilhe algumas noções básicas sobre seu lugar"
           subtitle="Quais amenite você tem?"
         />
-
+        <Counter
+          onChange={(value) => setCustomValue("guestCount", value)}
+          value={guestCount}
+          title="Convidados"
+          subtitle="Quantos convidados você permite?"
+        />
         <hr />
-
+        <Counter
+          onChange={(value) => setCustomValue("roomCount", value)}
+          value={roomCount}
+          title="Quartos"
+          subtitle="Quantos quartos você tem"
+        />
         <hr />
+        <Counter
+          onChange={(value) => setCustomValue("bathroomCount", value)}
+          value={bathroomCount}
+          title="Banheiros"
+          subtitle="Quantos banheiros você tem?"
+        />
       </div>
     )
   }
