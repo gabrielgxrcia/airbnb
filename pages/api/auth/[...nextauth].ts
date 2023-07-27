@@ -26,7 +26,9 @@ export const authOptions: AuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          throw new Error("Invalid credentials")
+          throw new Error(
+            "Credenciais de login inválidas. Por favor, tente novamente."
+          )
         }
 
         const user = await prisma.user.findUnique({
@@ -36,7 +38,9 @@ export const authOptions: AuthOptions = {
         })
 
         if (!user || !user?.hashedPassword) {
-          throw new Error("Invalid credentials")
+          throw new Error(
+            "Credenciais de login inválidas. Por favor, tente novamente."
+          )
         }
 
         const isCorrectPassword = await bcrypt.compare(
@@ -45,7 +49,9 @@ export const authOptions: AuthOptions = {
         )
 
         if (!isCorrectPassword) {
-          throw new Error("Invalid credentials")
+          throw new Error(
+            "Credenciais de login inválidas. Por favor, tente novamente."
+          )
         }
 
         return user
