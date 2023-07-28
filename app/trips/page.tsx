@@ -33,7 +33,7 @@ const TripsPage = async () => {
               subtitle="Hora de tirar o pó das malas e começar a planejar a próxima aventura"
             />
             <Link href={"/"}>
-              <button className="text-black border border-black px-6 py-3 rounded-lg">
+              <button className="text-black border border-black px-6 py-3 rounded-lg hover:bg-gray-50">
                 Começar a busca
               </button>
             </Link>
