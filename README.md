@@ -1,34 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Airbnb com Next.js 13 App Router: React, Tailwind, Prisma, MongoDB, NextAuth 2023
 
-## Getting Started
+### Features
 
-First, run the development server:
+- Design com TailwindCSS
+- Interface responsiva e animada com Tailwind
+- Autenticação de usuários por credenciais, Google e Github
+- Upload de imagens usando Cloudinary CDN
+- Validação e manipulação de formulários no lado do cliente com react-hook-form
+- Tratamento de erros do servidor usando react-toast
+- Calendários com react-date-range
+- Tratamento de estado de carregamento e estado vazio da página
+- Sistema de reserva e agendamento
+- Cancelamento de reserva por hóspedes e proprietários
+- Criação e exclusão de propriedades
+- Cálculo de preços
+- Algoritmo de busca avançada por categoria, período de datas, localização no mapa, número de hóspedes, quartos e banheiros
+- Sistema de favoritos
+- Filtros com URL compartilhável para facilitar o compartilhamento dos resultados da busca
+- Manipulação de rotas POST e DELETE (app/api)
+- Busca de dados em componentes React do lado do servidor diretamente no banco de dados (sem API)
+- Tratamento de novos arquivos de template do Next 13, como error.tsx e loading.tsx, para tratamento unificado de erros e carregamento
+- Gerenciamento de relações entre componentes do servidor e filhos
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+### Funcionamento
+
+```shell
+git clone https://github.com/gabrielgxrcia/airbnb.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Instalando os pacotes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Configurando o arquivo .env
 
-## Learn More
+```shell
+DATABASE_URL=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GITHUB_ID=
+GITHUB_SECRET=
+NEXTAUTH_SECRET=
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Configurando o Prisma
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```shell
+npx prisma generate
+npx prisma db push
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Agradecimentos
 
-## Deploy on Vercel
+- [ShadcnUI](https://ui.shadcn.com/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Feedback
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Se você tiver algum comentário, entre em contato comigo em gabrielgrazeffi12@gmail.com
+
+## Licença
+
+[MIT](https://choosealicense.com/licenses/mit/)
