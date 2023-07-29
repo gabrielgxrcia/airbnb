@@ -2,7 +2,7 @@
 
 import { AiOutlineMenu } from "react-icons/ai"
 import Avatar from "../avatar"
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect, useRef } from "react"
 import MenuItem from "./menuitem"
 import useRegisterModal from "@/app/hooks/useRegisterModal"
 import useLoginModal from "@/app/hooks/useLoginModal"
@@ -21,6 +21,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const loginModal = useLoginModal()
   const rentModal = useRentModal()
   const [isOpen, setIsOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement | null>(null)
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value)
@@ -33,8 +34,32 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     rentModal.onOpen()
   }, [currentUser, loginModal, rentModal])
 
+  const handleOutsideClick = useCallback(
+    (event: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !(menuRef.current as HTMLDivElement).contains(event.target as Node)
+      ) {
+        setIsOpen(false)
+      }
+    },
+    [setIsOpen]
+  )
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("click", handleOutsideClick)
+    } else {
+      document.removeEventListener("click", handleOutsideClick)
+    }
+
+    return () => {
+      document.removeEventListener("click", handleOutsideClick)
+    }
+  }, [isOpen, handleOutsideClick])
+
   return (
-    <div className="relative">
+    <div className="relative" ref={menuRef}>
       <div className="flex flex-row items-center gap-3">
         <div
           onClick={onRent}

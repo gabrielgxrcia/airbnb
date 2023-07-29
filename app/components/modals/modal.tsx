@@ -138,7 +138,6 @@ const Modal: React.FC<ModalProps> = ({
               >
                 <button
                   className="
-                    p-1
                     border-0 
                     hover:opacity-70
                     transition

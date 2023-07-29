@@ -54,7 +54,9 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value }) => {
             "
           >
             <TbPhotoPlus size={50} />
-            <div className="font-semibold text-lg">Carregue a imagem</div>
+            <div className="font-semibold text-lg text-center">
+              Carregue a imagem
+            </div>
             {value && (
               <div
                 className="
